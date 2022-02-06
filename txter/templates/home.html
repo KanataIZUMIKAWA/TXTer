@@ -1,0 +1,58 @@
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="TEAM 4" />
+    <meta name="og:type" content="website" />
+    <meta name="og:title" content="TXTer" />
+    <meta name="og:image" content="../static/og_image.png" />
+    <meta name="og:description" content="TXTerはテキストを共有するサービスを提供するサイトです。" />
+    <!--<meta name="og:url" content="https://texer.html.xdomain.jp" /> -->
+    <meta name="description" content="TXTerはテキストを共有するサービスを提供するサイトです。">
+    <meta meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="shortcut icon" href="../static/icon.ico">
+    <title>TXTer | home</title>
+    <link rel="stylesheet" type="text/css" href="../static/common.css">
+    <link rel="stylesheet" type="text/css" href="../static/home.css">
+  </head>
+  
+  <body>
+    <img  class="logo" src="../static/logo.png">
+    <div class="underline"></div>
+
+    <div class="main">
+      {% if user.is_authenticated %}       <!-- ログインしている時 -->
+      <p class="index">{{ user.username }} さんこんにちは</p>
+
+      <ul class="main-nav">
+        <li><a href="{% url 'newtxt' %}"><button>新しくTXTを作る</button></a></li>
+        <li><a href="{% url 'mypage' %}"><button>{{ user.username }} さんの投稿</button></a></li> <!-- クリックすると自分の投稿の一覧が見れる -->
+      </ul>
+
+      <div class="underline"></div>
+      <ul class="main-nav">
+        <li><a href="{% url 'posts' %}"><button>みんなの投稿一覧</button></a></li> <!-- クリックするとみんなの投稿の一覧が見れる -->
+      </ul>
+
+      <div class="stay_bottom">
+        <a  claas="logout" href="{% url 'logout' %}">ログアウト</a>
+      </div>
+
+      {% else %}      <!-- ログインしていない時 -->
+      <p class="index">ゲストさんこんにちは<p>
+      <p class="index">ログインしてTXTを作成・投稿しよう！</p>
+
+      <ul class="main-nav">
+        <li><a href="{% url 'login' %}"><button>ログイン</button></a></li>
+      </ul>
+
+      <div class="underline"></div>
+      <ul class="main-nav">
+        <li><a href="{% url 'posts' %}"><button>みんなの投稿一覧</button></a></li> <!-- クリックするとみんなの投稿の一覧が見れる -->
+      </ul>
+
+      {% endif %}
+      
+    </div>
+
+  </body>
+</html>

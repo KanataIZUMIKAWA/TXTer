@@ -1,0 +1,23 @@
+.logo{
+    width: 350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 0px;
+}
+
+@media (max-width: 720px) {
+    .logo{
+        width: 250px;
+    }
+}
+
+.stay_bottom{
+    position: absolute;
+    bottom: 5px; 
+    left: 5px;
+}
+
+.logout{
+    color: #050505;
+}

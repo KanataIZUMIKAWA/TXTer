@@ -1,0 +1,30 @@
+{% load static %}
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="TEAM 4" />
+    <meta name="og:type" content="website" />
+    <meta name="og:title" content="TXTer" />
+    <meta name="og:image" content="../static/og_image.png" />
+    <meta name="og:description" content="TXTerはテキストを共有するサービスを提供するサイトです。" />
+    <!--<meta name="og:url" content="https://texer.html.xdomain.jp" /> -->
+    <meta name="description" content="TXTerはテキストを共有するサービスを提供するサイトです。">
+    <meta meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="shortcut icon" href="../static/icon.ico">
+    <title>TXTer | posts</title>
+    <link rel="stylesheet" type="text/css" href="../static/common.css">
+    <link rel="stylesheet" type="text/css" href="../static/posts.css">
+  </head>
+  
+  <body>
+    <p class="index">みんなの投稿</p>
+      <div class="underline"></div>
+      {% for post in posts %}
+        <h1>#{{ post.id }}</h1>
+        <h3>user : {{ post.user }}</h3>
+        <p>{{ post.note }} </p>
+        <div class="underline"></div>
+      {% endfor %}
+
+  </body>
+</html>
